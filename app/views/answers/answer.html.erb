@@ -1,0 +1,25 @@
+<div id="container" class="w-100 d-flex justify-content-center my-3">
+<div class="d-flex bg-light w-50 flex-column p-3 border border-info">
+<h2 class="text-info">
+  <%= params[:answer] %>
+</h2>
+<p> - your question</p>
+</div>
+</div>
+
+<div id="container" class="w-100 d-flex justify-content-center my-3">
+<div class="d-flex bg-light w-50 flex-column p-3 border border-dark">
+  <% answer = params[:answer] %>
+  <% if answer == 'I am going to work'%>
+  <h3 class="text-success"><%= @answers[0] %></h3>
+  <% elsif answer.include?('?') %>
+  <h3 class="text-danger"><%= @answers[1] %></h3>
+  <% else  %>
+  <h3 class="text-warning"><%= @answers[2] %></h3>
+  <% end %>
+  <p> - coaches answer</p>
+</div>
+</div>
+<div class="text-center">
+<%= link_to "Ask another question", ask_path %>
+</div>
